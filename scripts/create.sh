@@ -4,7 +4,7 @@ set -euo pipefail
 usage() {
   cat <<USAGE
 Usage:
-  $0 --stack <laravel|node|postgres|wordpress> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
+  $0 --stack <laravel|node|nextjs|strapi|postgres|wordpress> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
 USAGE
 }
 
@@ -61,6 +61,12 @@ case "$STACK" in
     ;;
   node)
     render "$ROOT_DIR/templates/node/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  nextjs)
+    render "$ROOT_DIR/templates/nextjs/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  strapi)
+    render "$ROOT_DIR/templates/strapi/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
     ;;
   postgres)
     render "$ROOT_DIR/templates/postgres/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"

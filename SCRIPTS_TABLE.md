@@ -3,6 +3,7 @@
 | Script | Category | What it does | Example |
 |---|---|---|---|
 | `scripts/create.sh` | Scaffolding | Generates docker files for selected stack | `make create STACK=wordpress TARGET=/Users/oscarabad/Docker/prueba1` |
+| `scripts/create.sh` | Scaffolding | Supported stacks: `wordpress`, `laravel`, `node`, `nextjs`, `strapi`, `postgres` | `make create STACK=strapi TARGET=/Users/oscarabad/Docker/proj APP_PORT=1337 DB_PORT=54329` |
 | `scripts/new-project.sh` | Scaffolding | Creates project directory and optionally clones repo | `make new-project TARGET=/Users/oscarabad/Docker/proj REPO=https://github.com/org/repo.git` |
 | `scripts/stack-switch.sh` | Scaffolding | Regenerates infra as another stack | `make stack-switch TARGET=/Users/oscarabad/Docker/proj STACK=laravel` |
 | `scripts/port-check.sh` | Scaffolding | Checks if requested ports are free | `make port-check ARGS="8080 5432 3306"` |
@@ -28,5 +29,7 @@
 | `scripts/wp-db-search-replace.sh` | WordPress | Rewrites DB URLs/text in WordPress | `make wp-db-search-replace TARGET=/Users/oscarabad/Docker/proj FROM=http://old TO=https://new` |
 | `scripts/node-bootstrap.sh` | Node | install/lint/test/build local node project | `make node-bootstrap TARGET=/Users/oscarabad/Docker/proj` |
 | `scripts/node-dev-reset.sh` | Node | Cleans node caches and reinstalls | `make node-dev-reset TARGET=/Users/oscarabad/Docker/proj` |
+| `scripts/nextjs-bootstrap.sh` | Next.js | Installs deps and runs lint/test if available | `make nextjs-bootstrap TARGET=/Users/oscarabad/Docker/proj` |
+| `scripts/strapi-bootstrap.sh` | Strapi | Installs deps and prepares `.env` if possible | `make strapi-bootstrap TARGET=/Users/oscarabad/Docker/proj` |
 | `scripts/preflight.sh` | CI Local | Runs doctor + secrets + optional safe tests | `make preflight TARGET=/Users/oscarabad/Docker/proj` |
 | `scripts/release-tag.sh` | Release | Creates and pushes annotated git tag | `make release-tag VERSION=v1.2.0` |

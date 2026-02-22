@@ -92,6 +92,12 @@ node-bootstrap:
 node-dev-reset:
 	./scripts/node-dev-reset.sh $(TARGET)
 
+nextjs-bootstrap:
+	./scripts/nextjs-bootstrap.sh $(TARGET)
+
+strapi-bootstrap:
+	./scripts/strapi-bootstrap.sh $(TARGET)
+
 preflight:
 	./scripts/preflight.sh $(TARGET)
 
