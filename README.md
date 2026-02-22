@@ -1,8 +1,8 @@
 # docker-infra-scripts
 
-Scripts para crear y operar infraestructuras Docker por stack.
+Scripts para crear y operar infraestructuras Docker por tipo de proyecto.
 
-Stacks soportados:
+Tipos soportados:
 - `wordpress`
 - `laravel`
 - `node`
@@ -19,7 +19,7 @@ git clone https://github.com/Oscar-Abad-Folgueira/docker-infra-scripts.git
 cd docker-infra-scripts
 ```
 
-Crear stack:
+Crear infraestructura:
 
 ```bash
 make create STACK=wordpress TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088 ADMINER_PORT=8089
