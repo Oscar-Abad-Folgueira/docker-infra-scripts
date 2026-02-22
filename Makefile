@@ -1,6 +1,6 @@
 TARGET ?= .
 STACK ?= laravel
-PROJECT ?=
+PROJECT ?= auto
 WEB_PORT ?= 8080
 DB_PORT ?= 54322
 APP_PORT ?= 3000

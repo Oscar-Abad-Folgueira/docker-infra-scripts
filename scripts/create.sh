@@ -4,7 +4,7 @@ set -euo pipefail
 usage() {
   cat <<USAGE
 Usage:
-  $0 --stack <laravel|node|postgres> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
+  $0 --stack <laravel|node|postgres|wordpress> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
 USAGE
 }
 
@@ -34,8 +34,8 @@ done
 [ -n "$TARGET" ] || { echo "Missing --target"; usage; exit 1; }
 
 mkdir -p "$TARGET"
-if [ -z "$PROJECT" ]; then
-  PROJECT="$(basename "$TARGET" | tr '[:upper:]' '[:lower:]' | tr -cs 'a-z0-9' '_')"
+if [ -z "$PROJECT" ] || [ "$PROJECT" = "auto" ]; then
+  PROJECT="$(basename "$TARGET" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/_/g; s/^_+//; s/_+$//')"
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -64,6 +64,9 @@ case "$STACK" in
     ;;
   postgres)
     render "$ROOT_DIR/templates/postgres/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  wordpress)
+    render "$ROOT_DIR/templates/wordpress/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
     ;;
   *)
     echo "Invalid --stack: $STACK"; exit 1;;
