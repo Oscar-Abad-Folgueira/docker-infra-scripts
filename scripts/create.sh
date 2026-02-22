@@ -4,7 +4,7 @@ set -euo pipefail
 usage() {
   cat <<USAGE
 Usage:
-  $0 --stack <laravel|node|nextjs|strapi|wordpress|drupal|october|magento|prestashop|postgres> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
+  $0 --stack <wordpress|drupal|october|magento|prestashop|laravel|node|nextjs|strapi|postgres|mysql|mariadb|redis|mongodb|phpmyadmin|adminer|nginx|apache-php|python-fastapi|django|nestjs|react-vite|vue-vite|sveltekit> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
 USAGE
 }
 
@@ -85,6 +85,48 @@ case "$STACK" in
     ;;
   prestashop)
     render "$ROOT_DIR/templates/prestashop/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  mysql)
+    render "$ROOT_DIR/templates/mysql/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  mariadb)
+    render "$ROOT_DIR/templates/mariadb/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  redis)
+    render "$ROOT_DIR/templates/redis/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  mongodb)
+    render "$ROOT_DIR/templates/mongodb/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  phpmyadmin)
+    render "$ROOT_DIR/templates/phpmyadmin/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  adminer)
+    render "$ROOT_DIR/templates/adminer/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  nginx)
+    render "$ROOT_DIR/templates/nginx/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  apache-php)
+    render "$ROOT_DIR/templates/apache-php/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  python-fastapi)
+    render "$ROOT_DIR/templates/python-fastapi/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  django)
+    render "$ROOT_DIR/templates/django/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  nestjs)
+    render "$ROOT_DIR/templates/nestjs/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  react-vite)
+    render "$ROOT_DIR/templates/react-vite/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  vue-vite)
+    render "$ROOT_DIR/templates/vue-vite/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  sveltekit)
+    render "$ROOT_DIR/templates/sveltekit/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
     ;;
   *)
     echo "Invalid --stack: $STACK"; exit 1;;

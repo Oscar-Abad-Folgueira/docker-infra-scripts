@@ -3,7 +3,7 @@
 | Script | Categoría | Qué hace | Ejemplo |
 |---|---|---|---|
 | `scripts/create.sh` | Estructura | Genera archivos Docker según el stack elegido | `make create STACK=wordpress TARGET=/Users/oscarabad/Docker/prueba1` |
-| `scripts/create.sh` | Estructura | Stacks soportados: `wordpress`, `drupal`, `october`, `magento`, `prestashop`, `laravel`, `node`, `nextjs`, `strapi`, `postgres` | `make create STACK=magento TARGET=/Users/oscarabad/Docker/proj WEB_PORT=8088 DB_PORT=33088` |
+| `scripts/create.sh` | Estructura | Stacks soportados: `wordpress`, `drupal`, `october`, `magento`, `prestashop`, `laravel`, `node`, `nextjs`, `strapi`, `nestjs`, `python-fastapi`, `django`, `react-vite`, `vue-vite`, `sveltekit`, `postgres`, `mysql`, `mariadb`, `redis`, `mongodb`, `phpmyadmin`, `adminer`, `nginx`, `apache-php` | `make create STACK=magento TARGET=/Users/oscarabad/Docker/proj WEB_PORT=8088 DB_PORT=33088` |
 | `scripts/new-project.sh` | Estructura | Crea directorio de proyecto y opcionalmente clona un repositorio | `make new-project TARGET=/Users/oscarabad/Docker/proj REPO=https://github.com/org/repo.git` |
 | `scripts/stack-switch.sh` | Estructura | Regenera la infraestructura cambiando de stack | `make stack-switch TARGET=/Users/oscarabad/Docker/proj STACK=laravel` |
 | `scripts/port-check.sh` | Estructura | Comprueba si los puertos están libres | `make port-check ARGS="8080 5432 3306"` |
