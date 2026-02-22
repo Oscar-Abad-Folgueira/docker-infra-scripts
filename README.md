@@ -4,6 +4,10 @@ Scripts para crear y operar infraestructuras Docker por tipo de proyecto.
 
 Tipos soportados:
 - `wordpress`
+- `drupal`
+- `october`
+- `magento`
+- `prestashop`
 - `laravel`
 - `node`
 - `nextjs`
@@ -22,12 +26,16 @@ cd docker-infra-scripts
 Crear infraestructura:
 
 ```bash
-make create STACK=wordpress TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088 ADMINER_PORT=8089
-make create STACK=laravel   TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=54388
-make create STACK=node      TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=3008
-make create STACK=nextjs    TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=3008
-make create STACK=strapi    TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=1338 DB_PORT=54388
-make create STACK=postgres  TARGET=/Users/oscarabad/Docker/prueba1 DB_PORT=54388 ADMINER_PORT=8089
+make create STACK=wordpress  TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088 ADMINER_PORT=8089
+make create STACK=drupal     TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088
+make create STACK=october    TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088
+make create STACK=magento    TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088
+make create STACK=prestashop TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=33088
+make create STACK=laravel    TARGET=/Users/oscarabad/Docker/prueba1 WEB_PORT=8088 DB_PORT=54388
+make create STACK=node       TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=3008
+make create STACK=nextjs     TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=3008
+make create STACK=strapi     TARGET=/Users/oscarabad/Docker/prueba1 APP_PORT=1338 DB_PORT=54388
+make create STACK=postgres   TARGET=/Users/oscarabad/Docker/prueba1 DB_PORT=54388 ADMINER_PORT=8089
 ```
 
 Operación:

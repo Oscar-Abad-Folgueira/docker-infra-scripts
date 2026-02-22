@@ -4,7 +4,7 @@ set -euo pipefail
 usage() {
   cat <<USAGE
 Usage:
-  $0 --stack <laravel|node|nextjs|strapi|postgres|wordpress> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
+  $0 --stack <laravel|node|nextjs|strapi|wordpress|drupal|october|magento|prestashop|postgres> --target <dir> [--project <slug>] [--web-port 8080] [--db-port 5432] [--app-port 3000] [--adminer-port 8081]
 USAGE
 }
 
@@ -73,6 +73,18 @@ case "$STACK" in
     ;;
   wordpress)
     render "$ROOT_DIR/templates/wordpress/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  drupal)
+    render "$ROOT_DIR/templates/drupal/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  october)
+    render "$ROOT_DIR/templates/october/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  magento)
+    render "$ROOT_DIR/templates/magento/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
+    ;;
+  prestashop)
+    render "$ROOT_DIR/templates/prestashop/docker-compose.yml.tpl" "$TARGET/docker-compose.yml"
     ;;
   *)
     echo "Invalid --stack: $STACK"; exit 1;;
